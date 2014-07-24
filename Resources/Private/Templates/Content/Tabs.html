@@ -1,0 +1,52 @@
+{namespace v=Tx_Vhs_ViewHelpers}
+{namespace flux=Tx_Flux_ViewHelpers}
+<f:layout name="Content" />
+<div xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:flux="http://fedext.net/ns/flux/ViewHelpers"
+     xmlns:v="http://fedext.net/ns/vhs/ViewHelpers"
+     xmlns:f="http://typo3.org/ns/fluid/ViewHelpers">
+
+		 <f:section name="Configuration">
+				 <flux:flexform wizardTab="TWBS" id="tabs" 
+						 icon="{v:extension.path.resources(path: 'Icons/Tabs.gif')}"
+						 label="Tabs" description="">
+
+								 <flux:flexform.section name="panels" label="Tabs">
+										 <flux:flexform.object name="panel" label="Tab">
+												 <flux:flexform.field.input name="title"  label="Título" />
+										 </flux:flexform.object>
+								 </flux:flexform.section>
+						 <flux:flexform.grid>
+								 <f:for each="{panels}" as="panel" iteration="iteration">
+										 <flux:flexform.grid.row>
+												 <flux:flexform.grid.column>
+														 <flux:flexform.content name="content.{iteration.index}" label="{f:if(condition: panel.panel.title, then: panel.panel.title, else: 'Content, panel {iteration.cycle}')}" />
+												 </flux:flexform.grid.column>
+										 </flux:flexform.grid.row>
+								 </f:for>
+						 </flux:flexform.grid>
+
+				 </flux:flexform>
+		 </f:section>
+
+<f:section name="Preview">
+		<flux:widget.grid />
+</f:section>
+
+<f:section name="Main">
+
+		<ul class="nav nav-tabs" role="tablist">
+    		<f:for each="{panels}" as="panel" iteration="iteration"> 
+  					<li class="{f:if(condition:iteration.isFirst, then:'active')}"><a href="#panel-{record.uid}-{iteration.index}" role="tab" data-toggle="tab">{panel.panel.title}</a></li>
+				</f:for>
+		</ul>
+
+		<div class="tab-content">
+    		<f:for each="{panels}" as="panel" iteration="iteration"> 
+  					<div class="tab-pane {f:if(condition:iteration.isFirst, then:'active')}" id="panel-{record.uid}-{iteration.index}">
+                <flux:flexform.renderContent area="content.{iteration.index}" />
+  					</div>
+				</f:for>
+		</div>
+
+</f:section>

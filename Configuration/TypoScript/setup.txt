@@ -1,0 +1,7 @@
+[GLOBAL]
+plugin.tx_fed.fce.fluidcontent_twbs {
+	label = TWBS
+	templateRootPath = EXT:fluidcontent_twbs/Resources/Private/Templates/
+	partialRootPath = EXT:fluidcontent_twbs/Resources/Private/Partials/
+  layoutRootPath = EXT:fluidcontent_twbs/Resources/Private/Layouts/
+}

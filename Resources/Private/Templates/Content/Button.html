@@ -1,0 +1,32 @@
+{namespace v=Tx_Vhs_ViewHelpers}
+{namespace flux=Tx_Flux_ViewHelpers}
+<f:layout name="Content" />
+<div xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:flux="http://fedext.net/ns/flux/ViewHelpers"
+     xmlns:v="http://fedext.net/ns/vhs/ViewHelpers"
+     xmlns:f="http://typo3.org/ns/fluid/ViewHelpers">
+
+		 <f:section name="Configuration">
+				 <flux:flexform wizardTab="TWBS" id="button" 
+						 icon="{v:extension.path.resources(path: 'Icons/Button.gif')}"
+						 label="Button" description="">
+
+						 <flux:flexform.field.input name="target" label="Enlace">
+								 <flux:flexform.field.wizard.link />
+						 </flux:flexform.field.input>
+						 <flux:flexform.field.input name="text" label="Texto" />
+						 <flux:flexform.field.select name="class" items="default,btn-primary,btn-success,btn-info,btn-warning,btn-danger,btn-link" size="1" maxItems="1" label="Tipo" />
+						 <flux:flexform.field.select name="size" items="default,btn-lg,btn-sm,btn-xs" size="1" maxItems="1" label="Tamaño" />
+
+				 </flux:flexform>
+		 </f:section>
+
+<f:section name="Preview">
+		{text}	
+</f:section>
+
+<f:section name="Main">
+		<f:link.page class="btn {f:if(condition:'{class} == \'default\'', then:'btn-default', else:class)} {f:if(condition:'{size} == \'default\'', then:'', else:size)}" pageUid="{target}">
+				{text}
+		</f:link.page>
+</f:section>

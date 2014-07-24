@@ -1,0 +1,69 @@
+{namespace v=Tx_Vhs_ViewHelpers}
+{namespace flux=Tx_Flux_ViewHelpers}
+<f:layout name="Content" />
+<div xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:flux="http://fedext.net/ns/flux/ViewHelpers"
+     xmlns:v="http://fedext.net/ns/vhs/ViewHelpers"
+     xmlns:f="http://typo3.org/ns/fluid/ViewHelpers">
+
+		 <f:section name="Configuration">
+				 <flux:flexform wizardTab="TWBS" id="accordion" 
+						 icon="{v:extension.path.resources(path: 'Icons/Accordion.gif')}"
+						 label="Accordion" description="">
+
+						 <flux:flexform.field.checkbox name="collapsed" label="Todas las pestañas colapsadas al inicio" />
+						 <flux:flexform.section name="panels" label="Accordion">
+								 <flux:flexform.object name="panel" label="Panel">
+										 <flux:flexform.field.input name="title"  label="Título" />
+								 </flux:flexform.object>
+						 </flux:flexform.section>
+						 <flux:flexform.grid>
+								 <f:for each="{panels}" as="panel" iteration="iteration">
+										 <flux:flexform.grid.row>
+												 <flux:flexform.grid.column>
+														 <flux:flexform.content name="content.{iteration.index}" label="{f:if(condition: panel.panel.title, then: panel.panel.title, else: 'Content, panel {iteration.cycle}')}" />
+												 </flux:flexform.grid.column>
+										 </flux:flexform.grid.row>
+								 </f:for>
+						 </flux:flexform.grid>
+
+				 </flux:flexform>
+		 </f:section>
+
+<f:section name="Preview">
+		<flux:widget.grid />
+</f:section>
+
+<f:section name="Main">
+
+		<div class="panel-group" id="accordion-{record.uid}">
+				<f:for each="{panels}" as="panel" iteration="iteration">
+  					<div class="panel panel-default">
+    						<div class="panel-heading">
+      							<h4 class="panel-title">
+        								<a data-toggle="collapse" data-parent="#accordion-{record.uid}" href="#accordion-{record.uid}-{iteration.index}">
+														{panel.panel.title}
+        								</a>
+      							</h4>
+    						</div>
+    						<f:if condition="{collapsed}">
+    								<f:then>
+    										<div id="accordion-{record.uid}-{iteration.index}" class="panel-collapse collapse">
+      											<div class="panel-body">
+                    						<flux:flexform.renderContent area="content.{iteration.index}" />
+      											</div>
+    										</div>
+    								</f:then>
+    								<f:else>
+    										<div id="accordion-{record.uid}-{iteration.index}" class="panel-collapse collapse {f:if(condition:iteration.isFirst, then:'in')}">
+      											<div class="panel-body">
+                    						<flux:flexform.renderContent area="content.{iteration.index}" />
+      											</div>
+    										</div>
+    								</else>
+    						</f:if>
+  					</div>
+        </f:for>
+		</div>
+
+</f:section>
