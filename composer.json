@@ -1,0 +1,16 @@
+{
+    "name": "icti/fluidcontent-twbs",
+    "type": "typo3-cms-extension",
+    "description": "Fluid Content: Twitter Bootstrap 4 Elements",
+    "homepage": "https://github.com/icti/typo3-ext-fluidcontent_twbs",
+    "license": ["GPL-2.0+"],
+    "keywords": ["TYPO3 CMS", "Twitter Bootstrap", "FluidTYPO3"],
+    "support": {
+        "issues": "https://github.com/icti/typo3-ext-fluidcontent_twbs/issues"
+    },
+    "require": {
+      "typo3-ter/fluidcontent": "=>4.1.0",
+      "typo3-ter/vhs": ">=2.2.0",
+      "typo3-ter/flux": ">=7.1.0"
+    }
+}

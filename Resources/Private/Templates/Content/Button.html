@@ -1,5 +1,5 @@
-{namespace v=Tx_Vhs_ViewHelpers}
-{namespace flux=Tx_Flux_ViewHelpers}
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+{namespace flux=FluidTYPO3\Flux\ViewHelpers}
 <f:layout name="Content" />
 <div xmlns="http://www.w3.org/1999/xhtml"
      xmlns:flux="http://fedext.net/ns/flux/ViewHelpers"
@@ -7,18 +7,18 @@
      xmlns:f="http://typo3.org/ns/fluid/ViewHelpers">
 
 		 <f:section name="Configuration">
-				 <flux:flexform wizardTab="TWBS" id="button" 
+				 <flux:form wizardTab="TWBS" id="button" 
 						 icon="{v:extension.path.resources(path: 'Icons/Button.gif')}"
 						 label="Button" description="">
 
-						 <flux:flexform.field.input name="target" label="Enlace">
-								 <flux:flexform.field.wizard.link />
-						 </flux:flexform.field.input>
-						 <flux:flexform.field.input name="text" label="Texto" />
-						 <flux:flexform.field.select name="class" items="default,btn-primary,btn-success,btn-info,btn-warning,btn-danger,btn-link" size="1" maxItems="1" label="Tipo" />
-						 <flux:flexform.field.select name="size" items="default,btn-lg,btn-sm,btn-xs" size="1" maxItems="1" label="Tamaño" />
+						 <flux:field.input name="target" label="Enlace">
+								 <flux:wizard.link />
+						 </flux:field.input>
+						 <flux:field.input name="text" label="Texto" />
+						 <flux:field.select name="class" items="default,btn-primary,btn-success,btn-info,btn-warning,btn-danger,btn-link" size="1" maxItems="1" label="Tipo" />
+						 <flux:field.select name="size" items="default,btn-lg,btn-sm,btn-xs" size="1" maxItems="1" label="Tamaño" />
 
-				 </flux:flexform>
+				 </flux:form>
 		 </f:section>
 
 <f:section name="Preview">
