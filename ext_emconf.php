@@ -31,8 +31,8 @@ $EM_CONF[$_EXTKEY] = array(
 	'constraints' => array(
 		'depends' => array(
 			'fluidcontent' => '4.1.0-4.99.99',
-			'vhs' => '4.0.0-4.99.99',
-			'flux' => '4.0.0-4.99.99',
+			'vhs' => '2.2.0-2.99.99',
+			'flux' => '7.1.0-7.99.99',
 		),
 		'conflicts' => array(
 		),

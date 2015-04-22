@@ -7,8 +7,8 @@
      xmlns:f="http://typo3.org/ns/fluid/ViewHelpers">
 
 		 <f:section name="Configuration">
-				 <flux:form wizardTab="TWBS" id="accordion" 
-						 icon="{v:extension.path.resources(path: 'Icons/Accordion.gif')}"
+				 <flux:form id="accordion"
+						options="{group:'TWBS', icon:'../typo3conf/ext/fluidcontent_twbs/Resources/Public/Icons/Accordion.gif'}"
 						 label="Accordion" description="">
 
 						 <flux:field.checkbox name="collapsed" label="Todas las pestañas colapsadas al inicio" />

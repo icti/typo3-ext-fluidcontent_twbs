@@ -9,8 +9,5 @@
         "issues": "https://github.com/icti/typo3-ext-fluidcontent_twbs/issues"
     },
     "require": {
-      "typo3-ter/fluidcontent": "~4.1",
-      "typo3-ter/vhs": "~2.2",
-      "typo3-ter/flux": "~7.1"
     }
 }
