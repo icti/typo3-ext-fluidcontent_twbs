@@ -17,6 +17,7 @@
 						 <flux:field.input name="text" label="Texto" />
 						 <flux:field.select name="class" items="default,btn-primary,btn-success,btn-info,btn-warning,btn-danger,btn-link" size="1" maxItems="1" label="Tipo" />
 						 <flux:field.select name="size" items="default,btn-lg,btn-sm,btn-xs" size="1" maxItems="1" label="Tamaño" />
+						 <flux:field.select name="align" items=",ta-l,ta-c,ta-r" size="1" maxItems="1" label="Alineación" />
 
 				 </flux:form>
 		 </f:section>
@@ -26,7 +27,20 @@
 </f:section>
 
 <f:section name="Main">
-		<f:link.page class="btn {f:if(condition:'{class} == \'default\'', then:'btn-default', else:class)} {f:if(condition:'{size} == \'default\'', then:'', else:size)}" pageUid="{target}">
-				{text}
-		</f:link.page>
+	<f:if condition="{align}">
+		<f:then>
+			<div class="{align}">
+				<f:render section="btn" arguments="{_all}" />
+			</div>
+		</f:then>
+		<f:else>
+			<f:render section="btn" arguments="{_all}" />
+		</f:else>
+	</f:if>
+</f:section>
+
+<f:section name="btn">
+	<f:link.page class="btn {f:if(condition:'{class} == \'default\'', then:'btn-default', else:class)} {f:if(condition:'{size} == \'default\'', then:'', else:size)} " pageUid="{target}">
+		{text}
+	</f:link.page>
 </f:section>
